@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Text Cleansing">
+  <rect width="512" height="512" rx="112" fill="#148d8c"/>
+  <path d="M112 144c0-22 18-40 40-40h208c22 0 40 18 40 40v152c0 22-18 40-40 40h-91l-78 72v-72h-39c-22 0-40-18-40-40V144z" fill="#fff"/>
+  <path d="M191 188h130M191 230h105M191 272h82" fill="none" stroke="#148d8c" stroke-linecap="round" stroke-width="18"/>
+  <path d="M363 335l13 30 30 13-30 13-13 30-13-30-30-13 30-13 13-30z" fill="#d8f3f3"/>
+</svg>

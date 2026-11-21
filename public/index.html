@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ทดลองปรับข้อความภาษาไทยด้วยบริการ Text Cleansing ของ AI for Thai ผ่านเว็บที่ปกป้อง API key ฝั่งเซิร์ฟเวอร์" />
+  <meta name="theme-color" content="#148d8c" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Text Cleansing | แก้ไขข้อความภาษาไทย</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-card" aria-labelledby="page-title">
+      <p class="eyebrow">Text Cleansing</p>
+      <h1 id="page-title">บริการแก้ไขข้อความภาษาไทยที่พิมพ์ผิดลำดับ<br class="desktop-only" />(Text Cleansing)</h1>
+      <div class="divider"></div>
+      <div class="service-badge">AI for Thai</div>
+      <p class="intro">ส่งข้อความไปให้บริการ Text Cleansing ช่วยปรับ แล้วรับผลกลับมาในหน้าเดียว</p>
+      <div class="spec-table" aria-label="รายละเอียดบริการ">
+        <div class="spec-row"><div class="spec-label">Endpoint</div><div class="spec-value">https://api.aiforthai.in.th/textcleansing</div></div>
+        <div class="spec-row"><div class="spec-label">Method</div><div class="spec-value">POST</div></div>
+        <div class="spec-row"><div class="spec-label">API Key</div><div class="spec-value">เก็บเป็น secret ฝั่งเซิร์ฟเวอร์ ไม่ส่งไปยังเบราว์เซอร์</div></div>
+        <div class="spec-row"><div class="spec-label">Parameter</div><div class="spec-value"><code>text</code> — ข้อความที่ต้องการแก้ไข</div></div>
+      </div>
+    </section>
+
+    <section class="workspace-card" aria-labelledby="workspace-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ลองใช้งานบริการ</p>
+          <h2 id="workspace-title">แก้ไขข้อความของคุณ</h2>
+        </div>
+        <span class="status-pill" id="service-status" role="status" aria-live="polite"><span class="status-dot"></span>กำลังตรวจสอบการเชื่อมต่อ</span>
+      </div>
+      <form id="cleanse-form">
+        <label for="text-input">ข้อความต้นฉบับ</label>
+        <textarea id="text-input" name="text" rows="6" placeholder="เช่น พุ่มพวง หรือข้อความภาษาไทยที่ต้องการแก้ไข..." required></textarea>
+        <div class="form-footer">
+          <span id="char-count" aria-live="polite">0 ตัวอักษร</span>
+          <div class="actions">
+            <button type="button" class="button secondary" id="clear-button">ล้างข้อความ</button>
+            <button type="submit" class="button primary" id="submit-button"><span aria-hidden="true">✦</span> แก้ไขข้อความ</button>
+          </div>
+        </div>
+      </form>
+      <div class="result-panel" id="result-panel" hidden>
+        <div class="result-heading"><h3>ผลลัพธ์จาก API</h3><button type="button" class="copy-button" id="copy-button">คัดลอก</button></div>
+        <pre id="result-output" tabindex="0" aria-label="ผลลัพธ์ที่ได้จากบริการ"></pre>
+      </div>
+      <p class="error-message" id="error-message" role="alert" hidden></p>
+      <p class="privacy-note">เมื่อกด “แก้ไขข้อความ” ข้อความที่กรอกจะถูกส่งไปประมวลผลโดยบริการ AI for Thai · API key ไม่ถูกเปิดเผยบนหน้าเว็บ</p>
+    </section>
+    <p class="security-note">เว็บนี้ใช้เซิร์ฟเวอร์เป็นตัวกลางในการเชื่อมต่อ API และไม่บันทึกข้อความไว้ในระบบ</p>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
