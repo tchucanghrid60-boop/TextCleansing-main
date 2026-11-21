@@ -8,6 +8,7 @@ const resultOutput = document.querySelector('#result-output');
 const errorMessage = document.querySelector('#error-message');
 const copyButton = document.querySelector('#copy-button');
 const serviceStatus = document.querySelector('#service-status');
+const resultNote = document.querySelector('#result-note');
 
 function updateCount() {
   count.textContent = `${input.value.length.toLocaleString('th-TH')} ตัวอักษร`;
@@ -59,6 +60,7 @@ input.addEventListener('input', () => {
 clearButton.addEventListener('click', () => {
   input.value = '';
   resultPanel.hidden = true;
+  resultNote.hidden = true;
   errorMessage.hidden = true;
   updateCount();
   input.focus();
@@ -106,7 +108,14 @@ form.addEventListener('submit', async (event) => {
     if (!response.ok || payload.ok === false) {
       throw new Error(payload.error || `บริการตอบกลับด้วยสถานะ ${response.status}`);
     }
-    resultOutput.textContent = extractResult(payload);
+    const result = extractResult(payload);
+    resultOutput.textContent = result;
+    if (result.trim() === text) {
+      resultNote.textContent = 'ผลลัพธ์เหมือนต้นฉบับ: บริการไม่พบลำดับตัวอักษรที่ต้องแก้ไขในข้อความนี้';
+      resultNote.hidden = false;
+    } else {
+      resultNote.hidden = true;
+    }
     resultPanel.hidden = false;
     resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } catch (error) {

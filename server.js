@@ -111,6 +111,9 @@ async function handleCleansing(req, res) {
       });
     }
 
+    // Debug ชั่วคราว: log เฉพาะชื่อ key ไม่ log ข้อความผู้ใช้ (ลบออกได้หลังตรวจเสร็จ)
+    console.log('upstream keys:', data && typeof data === 'object' ? Object.keys(data) : typeof data);
+
     return sendJson(res, 200, { ok: true, status: upstream.status, data });
   } catch (error) {
     if (error.name === 'TimeoutError' || error.name === 'AbortError') {
